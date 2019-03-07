@@ -5,7 +5,7 @@ public class StableMatching implements StableMatchingInterface {
     int[][] menPrefs,
     int[][] womenPrefs
   ){
-		// returns a stable matching in the form of a n*n matrix
+		// returns a stable matching in the form of a m*w matrix
 		
 		int m = menGroupCount.length;
 		int w = womenGroupCount.length;
