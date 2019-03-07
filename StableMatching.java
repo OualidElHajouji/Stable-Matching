@@ -5,14 +5,16 @@ public class StableMatching implements StableMatchingInterface {
     int[][] menPrefs,
     int[][] womenPrefs
   ){
+		// returns a stable matching in the form of a n*n matrix
+		
 		int m = menGroupCount.length;
 		int w = womenGroupCount.length;
 		int[][] M = new int[m][w]; /* Final result */
 		int n = java.util.stream.IntStream.of(menGroupCount).sum(); /* sum of the elts of menGroupCount (total nb of men) */
-        int engagedCount = 0; /* nb of couples */
-        int i; /* the i of the instructions */
-        int nextGpOfMen = -1; /* helps choose the next gp of men considered (avoids always using the function chooseMenGroup) */
-        int[] menUnengagedCount  = new int[m]; /* counts the nb of unengaged men in each gp */
+       		int engagedCount = 0; /* nb of couples */
+        	int i; /* indicates the current gp of men */
+        	int nextGpOfMen = -1; /* helps choose the next gp of men considered (avoids always using the function chooseMenGroup) */
+        	int[] menUnengagedCount  = new int[m]; /* counts the nb of unengaged men in each gp */
 		int[] womenUnengagedCount = new int[w]; /* same for women */
 		
 		int[] nextWomenGroup = new int[m]; /*tab of the ranking of the women group chosen by each group of men : intially, all equal to 0 */
@@ -87,7 +89,7 @@ public class StableMatching implements StableMatchingInterface {
 						}
 					else { /* We will keep the same gp of men and change the gp of women */
 						
-				    nextWomenGroup[i] += 1;
+				    	nextWomenGroup[i] += 1;
 					nextGpOfMen = i;
 					}
 			
